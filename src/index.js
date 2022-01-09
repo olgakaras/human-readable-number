@@ -5,33 +5,19 @@ module.exports = function toReadable (number) {
   let c = ' hundred';
 
   let strDecimalNum = b[arrNum[0] - 2] + ' ' + a[arrNum[1]];
+  let hundredths = a[arrNum[0]] + c;
+  let decimal = b[arrNum[1] - 2];
 
   if(number < 100) {
-    if(number <= 19) {
-      return a[number];
-    }
-    else if(arrNum[1] == 0) {
-      return b[arrNum[0] - 2];
-    }
-    else {
-      return strDecimalNum;
-    }
+    let condition1 = number <= 19 ? a[number] :
+                     arrNum[1] == 0 ? b[arrNum[0] - 2] : strDecimalNum;
+    return condition1;
   }
-  else if (number < 1000) {
-    if (arrNum[1] == 0 && arrNum[2] == 0) {
-      return a[arrNum[0]] + c;
-    }
-    else if(number%100 <= 19) {
-      return a[arrNum[0]] + c + " " + a[number%100];
-    }
-    else {
-      if(arrNum[2] == 0) {
-        return a[arrNum[0]] + c + " " + b[arrNum[1] - 2];
-      }
-      else {
-        return a[arrNum[0]] + c + " " + b[arrNum[1] - 2] + ' '+ a[arrNum[2]];
-      }
-      
-    }
+  else {
+    let cond = arrNum[2] == 0 ? hundredths + " " + decimal : 
+                               hundredths + " " + decimal + " " + a[arrNum[2]];
+    let condition2 = arrNum[1] == 0 && arrNum[2] == 0 ? hundredths :
+                     number%100 <= 19 ? hundredths + " " + a[number%100] : cond;
+    return condition2;
   } 
 }
