@@ -1,6 +1,6 @@
 module.exports = function toReadable (number) {
   let arrNum = Array.from(String(number), Number);
-  let a = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eihteen', 'nineteen'];
+  let a = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
   let b = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
   let c = ' hundred';
 
@@ -28,9 +28,9 @@ module.exports = function toReadable (number) {
       if(arrNum[2] == 0) {
         return a[arrNum[0]] + c + " " + b[arrNum[1] - 2];
       }
-      // else {
-      //   return a[arrNum[0]] + c + " ";
-      // }
+      else {
+        return a[arrNum[0]] + c + " " + b[arrNum[1] - 2] + ' '+ a[arrNum[2]];
+      }
       
     }
   } 
