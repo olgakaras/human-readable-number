@@ -11,7 +11,7 @@ module.exports = function toReadable (number) {
       return a[number];
     }
     else if(arrNum[1] == 0) {
-      console.log(b[arrNum[0] - 2]);
+      return b[arrNum[0] - 2];
     }
     else {
       return strDecimalNum;
